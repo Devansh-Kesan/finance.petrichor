@@ -23,8 +23,8 @@ export const load: PageServerLoad = async ({ params }) => {
     //     error(404, {message: 'Unable to resolve the response'})
     // }
 
-    const markdown = fs.readFileSync(path.resolve('./src/routes/events/[slug]/[itemId]/+page.svx')).toString()
-
+    // const markdown = fs.readFileSync(path.resolve('./src/routes/events/[slug]/[itemId]/+page.svx')).toString()
+    const markdown = "";
     // return {data: result.data}
     return {"event" : {
         eventId: "TP01",

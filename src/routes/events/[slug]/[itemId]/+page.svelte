@@ -1,9 +1,10 @@
 <script lang="ts">
     import CodeMirror from "svelte-codemirror-editor";
     import { javascript } from "@codemirror/lang-javascript";
-    import { onMount } from "svelte";
 
     export let data: any;
+    let changed = false;
+    let prevTime = Date.now()
 
     let iframe:HTMLIFrameElement
     
@@ -18,8 +19,14 @@
         .then (res => {
             res = (JSON.parse(res.data)[0])
             transformed_code = res
+            changed = false
         });
     }
+
+    setInterval(() => {
+        if (changed)
+            convertToHtml()
+    }, 1000)
 
     const srcdoc = `
     <!doctype html>
@@ -50,6 +57,7 @@
             <style>
             * {
                 box-sizing: border-box;
+                font-family: monospace;
             }
             html,body {
                 overflow:hidden;
@@ -76,14 +84,16 @@
 
 <main>
     <div class="update Area">
-        <button on:click={convertToHtml}>Convert</button>
+        <!-- Geeteshwar's progress here -->
+        <!-- <button on:click={convertToHtml}>Convert</button> -->
     </div>
     <div class="readmeArea">
         <div class="textareaElement">
-            <CodeMirror bind:value={markdown} lang={javascript()} />
+            <CodeMirror bind:value={markdown} lang={javascript()} on:change={() => {changed=true}} />
         </div>
         <iframe class="outputArea" bind:this={iframe} title='repl' {srcdoc} height={height}/>
     </div>
+    <p>Output Updates every second</p>
 </main>
 
 <style>
