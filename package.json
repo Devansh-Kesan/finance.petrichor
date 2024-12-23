@@ -14,6 +14,7 @@
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/nodemailer": "^6.4.14",
+		"mdsvex": "^0.11.2",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
@@ -22,7 +23,20 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@codemirror/lang-javascript": "github:codemirror/lang-javascript",
+		"@rollup/browser": "^4.29.1",
+		"codemirror": "^6.0.1",
 		"emailjs": "^4.0.3",
-		"nodemailer": "^6.9.8"
+		"escodegen": "^2.1.0",
+		"nodemailer": "^6.9.8",
+		"rollup": "^1.19.4",
+		"rollup-plugin-babel": "^4.3.3",
+		"rollup-plugin-commonjs": "^10.0.2",
+		"rollup-plugin-json": "^4.0.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-replace": "^2.0.0",
+		"rollup-plugin-svelte": "^5.1.0",
+		"rollup-plugin-terser": "^4.0.4",
+		"svelte-codemirror-editor": "^1.4.1"
 	}
 }

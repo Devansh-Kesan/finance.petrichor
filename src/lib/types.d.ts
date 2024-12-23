@@ -17,6 +17,16 @@ export type Vtransaction = {
     verified: boolean
 }
 
+export type Event = {
+    eventId: String,
+    name: String,
+    fee: number,
+    minMember:number,
+    maxMember:number,
+    isTeam:boolean,
+    markdown:string
+}
+
 export type member = {
     name: string,
     email: string,
@@ -43,4 +53,15 @@ export type User = {
 export type transaction = {
     members: member[],
     payment: Payment
+}
+
+
+export interface Tab {
+    id: number,
+    name: string,
+    type: string
+}
+
+export interface Component extends Tab {
+    source : string;
 }
